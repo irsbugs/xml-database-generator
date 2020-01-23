@@ -4,14 +4,13 @@
 
 The program defaults to generating a Pet Club with 4 x members. A command line argument allows the setting of the number of members. 
 
-Each Pet Club member receives a unique integer ID. The ID's start at 1, but are randomly assigned.
+Each Pet Club member receives a unique integer *members ID*. The ID's start at 1, but are randomly assigned to the members.
 
-If the python module corporate_ipsum is downloaded from https://github.com/ldo/corporate_ipsum then this will be used to generate a random quotation for each member.
+If the python module *corporate_ipsum* is downloaded from https://github.com/ldo/corporate_ipsum then this will be used to generate a random quotation for each member.
 
-It is possible that two members may have the same first name, middle initial and surname, but *highly unlikely* that they will also share the same date of birth.
+It would be *rare* that two members will have the same first name, middle initial and surname, and *extremely unlikely* that they will also share the same date of birth.
 
 The xml file generated for a two member Pet Club will be like the following but with completely different data:
-
 ```
 $ python3 pet_club.py 2
 Created:
