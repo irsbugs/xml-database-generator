@@ -1,6 +1,6 @@
 # xml-database-generator
 
-*pet_club.py* will generate an xml file that simulates a database for members of a Pet Club. This xml file may then be used to aid in learning to use [BaseX](http://basex.org/) or the python module [BaseXClient](https://pypi.org/project/BaseXClient/).
+*pet_club.py* will generate a xml file that simulates a database for members of a Pet Club. This xml file may then be used to aid in learning to use [BaseX](http://basex.org/) or the python module [BaseXClient](https://pypi.org/project/BaseXClient/).
 
 The program defaults to generating a Pet Club with 4 x members. A command line argument allows the setting of the number of members. 
 
