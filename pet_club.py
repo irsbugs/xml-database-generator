@@ -1,14 +1,18 @@
 #!/usr/bin/env python3
 #!
 # pet_club.py
+#
 # Generates a xml file which is a database for members of a pet club.
 # Names, date of birth, and pets, etc. are randomly generated.
-# To generate quotes needs corporate_ipsum modules from Lawrence:
+# To generate quotes requires the corporate_ipsum module from Lawrence:
 # https://github.com/ldo/corporate_ipsum
-# Add if __name__ == "__main__": after the mainline comment #Mainline
 #
 # ===
-# Using BaseX to convert xml file to a database in a folder:
+#
+# The objective of the database that is generated is for it to be used when
+# learning to use the utility BaseX or the python module BaseXClient. 
+#
+# Using BaseX to convert a xml file to a database in a folder:
 #
 # $ basex -V -c 'CREATE DB pet_club /home/ian/BaseXData/pet_club.xml;'
 # Database 'pet_club' created in 684.46 ms.
@@ -31,11 +35,11 @@
 # $ basex -V -i /home/ian/BaseXData/pet_club.xml "data(//member_id)"
 # Access the basex database for pet_club
 # $ basex -V -i /home/ian/BaseXData/pet_club/pet_club "data(//member_id)"
-
+# Open, then export the database
 # $basex -c 'OPEN pet_club; EXPORT /home/ian/BaseXData/pet_club_1'
 # $ ls -l pet_club_1/pet_club.xml
 #-rw-rw-r-- 1 ian ian 857 Jan 21 23:20 pet_club_1/pet_club.xml
-# 897 - 857 = 42 shorter - missing <?xml version="1.0" encoding="UTF-8"?>
+# 897 - 857 = 40 shorter - missing <?xml version="1.0" encoding="UTF-8"?>
 #
 # $ basex -i /home/ian/BaseXData/pet_club/pet_club "data(//member)"
 # 4FieldsRussellS.male1985-06-13hampsterblackCredibly productivate agile fungibility.
@@ -52,9 +56,8 @@ is_quote = True
 try:
     import corporate_ipsum
 except:
-    print("corporate_ipsum module not present. Unable to generate quotes")
+    print("corporate_ipsum module not present. Unable to generate quotes.")
     print("Module may be copied from: https://github.com/ldo/corporate_ipsum")
-    print("Add: if __name__ == '__main__': after the comment '#Mainline'")
     is_quote = False
 
 
@@ -352,9 +355,6 @@ def quote_generator():
     """
     Use Lawrence's coporate_ipsum program to randomly generate a quotation.
     """
-    # import corporate_ipsum
-    #print(dir(corporate_ipsum))
-    #for i in range(4):
     return corporate_ipsum.create_ipsum(1)
 
 
@@ -413,7 +413,7 @@ def main(total = 100):
         fout.write(s)
 
     # Append to the file a fixed length comment. E.g.
-    # <!-- File Name:pet_club_8.xml Size:1827 Members:8 Duration:0.002      -->
+    # <!-- File Name:pet_club_8.xml Size:1827 Members:8 Duration:0.002 -->
     duration = time.time() - start_time
     # Add 100 bytes to the file size to allow for the comment to be added
     file_size = os.path.getsize(file_name + file_extension) + 100
